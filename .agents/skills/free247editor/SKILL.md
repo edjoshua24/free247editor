@@ -15,6 +15,7 @@ editing or coding terms. Run every command from the repo root unless a step says
 | --- | --- |
 | `setup.mjs` | One-time setup. Safe to re-run. |
 | `tools/transcribe.mjs` | Free word-level transcription (Groq, or `--local` faster-whisper). |
+| `tools/capcut-draft.mjs` | Writes an edit plan (clips, in/out points, tracks) as a CapCut desktop project. |
 | `inbox/` | Raw videos the user wants edited. |
 | `outbox/` | Every draft and final you render, named `<slug>-v1.mp4`, `<slug>-final.mp4`. |
 | `my-style.md` | The user's style, written during style setup. |
@@ -109,6 +110,13 @@ any other paid API). The default is to use none of them.
    services unasked.
 6. Render a draft and copy it to `outbox/<slug>-v1.mp4`. Open it. Tell the user in 3 to 5
    short bullets what you did, then ask for notes.
+
+When the user wants to finish the edit themselves in CapCut, write the cut as a plan JSON (the
+format is at the top of `tools/capcut-draft.mjs`: main track first, b-roll tracks above) and run
+`node tools/capcut-draft.mjs plan.json`. It saves the project straight into CapCut's projects
+folder; add `--replace` to overwrite a project it made earlier. Clips stay where they are, so
+footage on another drive works as long as that drive stays connected. Tell the user to restart
+CapCut if the project does not show up.
 
 ## Notes become rules
 

@@ -112,7 +112,7 @@ free247editor/
   .claude/skills/    pointer to that skill for Claude Code
   AGENTS.md          tells every agent to use the skill (CLAUDE.md imports it)
   setup.mjs          one-time setup (safe to re-run)
-  tools/             free transcription
+  tools/             free transcription and CapCut project export
   inbox/             your raw videos
   outbox/            drafts and finals
   my-style.md        your style (created at setup, stays private)
